@@ -1,0 +1,32 @@
+﻿@model Category
+
+<form method="post" action="Create">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Create Category</h2>
+            <hr />
+        </div>
+    </div>
+    <div class="mb-3">
+        <label asp-for="CategoryName"></label>
+        <input asp-for="CategoryName" class="form-control" />
+        <span asp-validation-for="CategoryName" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <div id="sizes-list">
+            <div class="mb-3">
+                <label for="Sizes">Enter 1 size:</label>
+                <p>Size in string:</p>
+                <input name="Sizes[0].InString" class="form-control" />
+                <p>Size in number:</p>
+                <input type="number" name="Sizes[0].InNumber" class="form-control" />
+            </div>
+        </div>
+        <div onclick="AddSizeRow()" class="btn btn-primary" style="margin-top:15px">Add Size</div>
+        <span asp-validation-for="Sizes" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+    <a asp-controller="Category" asp-action="Index" class="btn btn-secondary" style="width:150px">Back</a>
+</form>
+
+<script src=~/js/category.js></script>
